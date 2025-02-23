@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize"); // Extracting the Model & DataTypes methods from the sequelize module to create model with datatypes
 
-const sequelize = require("../config/connection"); // importing to connect model to the database connection
+const sequelize = require("../config/connection"); // Importing to connect model to the database connection
 
 const Order = require("./Order"); // Inheriting all methods & properties from Model object
 
-// Creating an instance of the Model object called UserDonationInfo
+// Creating an instance of the Model object called OrderDetails
 class OrderDetails extends Model {}
 
 OrderDetails.init(
@@ -35,6 +35,10 @@ OrderDetails.init(
         },
         color: {
             type: DataTypes.STRING(30), // Stores color as a string
+            allowNull: false,
+        },
+        allergies: {
+            type: DataTypes.TEXT, // Stores allergy information as text
             allowNull: false,
         },
         comments: {
